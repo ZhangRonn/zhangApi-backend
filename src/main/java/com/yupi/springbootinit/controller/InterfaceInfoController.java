@@ -264,16 +264,30 @@ public class InterfaceInfoController {
         YuApiClient tempClient = new YuApiClient(accessKey, secretKey);
         Gson gson = new Gson();
         com.yupi.yuapiclientsdk.model.User user = gson.fromJson(userRequestParams, com.yupi.yuapiclientsdk.model.User.class);
+<<<<<<< HEAD
         String usernameByPost = tempClient.getUsernameByPost(user);
         if (id == 1) {
 
+=======
+
+        if (id == 1) {
+            String usernameByPost = tempClient.getUsernameByPost(user);
+>>>>>>> 781ce44 (dssfa)
             return ResultUtils.success(usernameByPost);
         }
         if (id == 2) {
             String birtday = tempClient.getBirtday(user);
             return ResultUtils.success(birtday);
         }
+<<<<<<< HEAD
         return ResultUtils.success(usernameByPost);
+=======
+        if (id == 3) {
+            String weather = tempClient.getWeather(user);
+            return ResultUtils.success(weather);
+        }
+        return ResultUtils.success("这个接口还没有开发OvO");
+>>>>>>> 781ce44 (dssfa)
 
     }
 

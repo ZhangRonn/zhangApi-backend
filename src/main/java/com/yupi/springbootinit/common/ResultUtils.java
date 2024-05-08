@@ -11,6 +11,10 @@ public class ResultUtils {
      * @return
      */
     public static <T> BaseResponse<T> success(T data) {
+<<<<<<< HEAD
+=======
+
+>>>>>>> 781ce44 (dssfa)
         return new BaseResponse<>(0, data, "ok");
     }
 

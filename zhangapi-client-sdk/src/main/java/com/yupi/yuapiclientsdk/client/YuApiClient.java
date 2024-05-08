@@ -33,9 +33,25 @@ public class YuApiClient {
         hashMap.put("nonce", RandomUtil.randomNumbers(4));
         hashMap.put("body", body);
         hashMap.put("timestamp", String.valueOf(System.currentTimeMillis() / 1000));
+<<<<<<< HEAD
         hashMap.put("sign", genSign(body, secretKey));
         return hashMap;
     }
+=======
+        String s = genSign(body, secretKey);
+        hashMap.put("sign", s);
+        return hashMap;
+    }
+    public String getWeather(User user) {
+        String json = JSONUtil.toJsonStr(user);
+        HttpResponse httpResponse = HttpRequest.get(GATEWAY_HOST + "/api/weather/getWeather")
+                .addHeaders(getHeaderMap(json))
+                .body(json)
+                .execute();
+        String result = httpResponse.body();
+        return result;
+    }
+>>>>>>> 781ce44 (dssfa)
     public String getBirtday(User user) {
         String json = JSONUtil.toJsonStr(user);
         HttpResponse httpResponse = HttpRequest.post(GATEWAY_HOST + "/api/universal/compute")
@@ -54,6 +70,10 @@ public class YuApiClient {
         System.out.println(httpResponse.getStatus());
         String result = httpResponse.body();
         System.out.println(result);
+<<<<<<< HEAD
+=======
+        
+>>>>>>> 781ce44 (dssfa)
         return result;
     }
 }
